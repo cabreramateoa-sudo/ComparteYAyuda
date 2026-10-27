@@ -9,21 +9,21 @@ public partial class MainPage : ContentPage
     }
 
     private async void OnVerDonaciones(
-        object? sender, EventArgs e)
+        object? sender,
+        EventArgs e)
     {
-        await DisplayAlertAsync(
-            "Donaciones disponibles",
-            "Aquí estará la lista de donaciones del proyecto.",
-            "Aceptar");
+        await Shell.Current.GoToAsync(
+            nameof(DonacionesPage));
     }
 
     private async void OnPublicarDonacion(
-        object? sender, EventArgs e)
+        object? sender,
+        EventArgs e)
     {
         try
         {
             await Shell.Current.GoToAsync(
-                nameof(PublicarDonacionPage));
+                "PublicarDonacionPage");
         }
         catch (Exception ex)
         {

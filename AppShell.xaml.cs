@@ -10,5 +10,9 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(
             "PublicarDonacionPage",
             typeof(PublicarDonacionPage));
+
+        Routing.RegisterRoute(
+            "DonacionesPage",
+            typeof(DonacionesPage));
     }
 }

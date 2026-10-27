@@ -1,0 +1,161 @@
+
+<ContentPage
+    x:Class="ComparteYAyuda.DonacionesPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Donaciones disponibles"
+    BackgroundColor="#F7FAF8">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="22" Spacing="18">
+
+            <Label
+                Text="Donaciones disponibles"
+                FontSize="27"
+                FontAttributes="Bold"
+                TextColor="#263B35"/>
+
+            <Label
+                Text="Encuentra artículos que pueden ayudarte."
+                FontSize="15"
+                TextColor="#64746D"/>
+
+            <SearchBar
+                x:Name="BuscarEntry"
+                Placeholder="Buscar una donación..."
+                BackgroundColor="White"
+                TextColor="#263B35"
+                PlaceholderColor="#87958F"
+                TextChanged="OnBuscarChanged"/>
+
+            <Label
+                Text="Explora las donaciones"
+                FontSize="19"
+                FontAttributes="Bold"
+                TextColor="#263B35"/>
+
+            <VerticalStackLayout
+                x:Name="ListaDonaciones"
+                Spacing="14">
+
+                <Border
+                    BackgroundColor="White"
+                    Stroke="#DCE9E2"
+                    StrokeThickness="1"
+                    Padding="16">
+
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="16"/>
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout Spacing="9">
+                        <Label Text="ROPA"
+                               TextColor="#327A68"
+                               FontSize="12"
+                               FontAttributes="Bold"/>
+
+                        <Label Text="Ropa en buen estado"
+                               FontSize="19"
+                               FontAttributes="Bold"
+                               TextColor="#263B35"/>
+
+                        <Label Text="Prendas limpias para personas que las necesiten."
+                               FontSize="14"
+                               TextColor="#64746D"/>
+
+                        <Button Text="Me interesa"
+                                BackgroundColor="#327A68"
+                                TextColor="White"
+                                CornerRadius="10"
+                                Clicked="OnMostrarInteres"
+                                CommandParameter="Ropa en buen estado"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border
+                    BackgroundColor="White"
+                    Stroke="#DCE9E2"
+                    StrokeThickness="1"
+                    Padding="16">
+
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="16"/>
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout Spacing="9">
+                        <Label Text="ÚTILES ESCOLARES"
+                               TextColor="#327A68"
+                               FontSize="12"
+                               FontAttributes="Bold"/>
+
+                        <Label Text="Materiales para estudiar"
+                               FontSize="19"
+                               FontAttributes="Bold"
+                               TextColor="#263B35"/>
+
+                        <Label Text="Cuadernos y lápices para apoyar la educación."
+                               FontSize="14"
+                               TextColor="#64746D"/>
+
+                        <Button Text="Me interesa"
+                                BackgroundColor="#327A68"
+                                TextColor="White"
+                                CornerRadius="10"
+                                Clicked="OnMostrarInteres"
+                                CommandParameter="Materiales para estudiar"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border
+                    BackgroundColor="White"
+                    Stroke="#DCE9E2"
+                    StrokeThickness="1"
+                    Padding="16">
+
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="16"/>
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout Spacing="9">
+                        <Label Text="ALIMENTOS"
+                               TextColor="#327A68"
+                               FontSize="12"
+                               FontAttributes="Bold"/>
+
+                        <Label Text="Alimentos no perecederos"
+                               FontSize="19"
+                               FontAttributes="Bold"
+                               TextColor="#263B35"/>
+
+                        <Label Text="Productos de despensa para apoyar a otras familias."
+                               FontSize="14"
+                               TextColor="#64746D"/>
+
+                        <Button Text="Me interesa"
+                                BackgroundColor="#327A68"
+                                TextColor="White"
+                                CornerRadius="10"
+                                Clicked="OnMostrarInteres"
+                                CommandParameter="Alimentos no perecederos"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+
+            <Button
+                Text="Volver al inicio"
+                BackgroundColor="#E8F3EF"
+                TextColor="#263B35"
+                CornerRadius="12"
+                HeightRequest="48"
+                Clicked="OnVolverInicio"/>
+
+            <Label
+                Text="ComparteYAyuda · Compartir nos une"
+                FontSize="12"
+                TextColor="#64746D"
+                HorizontalTextAlignment="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
