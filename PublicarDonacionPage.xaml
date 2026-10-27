@@ -1,0 +1,91 @@
+
+<ContentPage
+    x:Class="ComparteYAyuda.PublicarDonacionPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Publicar donación"
+    BackgroundColor="#F7FAF8">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="16">
+
+            <Label
+                Text="Nueva donación"
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="#263B35"/>
+
+            <Label
+                Text="Completa los datos del artículo que deseas compartir."
+                FontSize="15"
+                TextColor="#64746D"/>
+
+            <Label Text="Nombre del artículo"
+                   TextColor="#263B35"
+                   FontAttributes="Bold"/>
+            <Entry x:Name="ArticuloEntry"
+                   Placeholder="Ej. Ropa, alimentos, libros"
+                   BackgroundColor="White"
+                   TextColor="#263B35"/>
+
+            <Label Text="Categoría"
+                   TextColor="#263B35"
+                   FontAttributes="Bold"/>
+            <Picker x:Name="CategoriaPicker"
+                    Title="Selecciona una categoría"
+                    BackgroundColor="White"
+                    TextColor="#263B35">
+                <Picker.Items>
+                    <x:String>Alimentos</x:String>
+                    <x:String>Ropa</x:String>
+                    <x:String>Útiles escolares</x:String>
+                    <x:String>Otros</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Descripción"
+                   TextColor="#263B35"
+                   FontAttributes="Bold"/>
+            <Editor x:Name="DescripcionEditor"
+                    Placeholder="Describe brevemente el artículo"
+                    AutoSize="TextChanges"
+                    MinimumHeightRequest="90"
+                    BackgroundColor="White"
+                    TextColor="#263B35"/>
+
+            <Label Text="Nombre del donante"
+                   TextColor="#263B35"
+                   FontAttributes="Bold"/>
+            <Entry x:Name="DonanteEntry"
+                   Placeholder="Tu nombre"
+                   BackgroundColor="White"
+                   TextColor="#263B35"/>
+
+            <Label Text="Datos de contacto"
+                   TextColor="#263B35"
+                   FontAttributes="Bold"/>
+            <Entry x:Name="ContactoEntry"
+                   Placeholder="Teléfono o correo electrónico"
+                   Keyboard="Email"
+                   BackgroundColor="White"
+                   TextColor="#263B35"/>
+
+            <Button
+                Text="Publicar donación"
+                BackgroundColor="#327A68"
+                TextColor="White"
+                CornerRadius="12"
+                HeightRequest="52"
+                Clicked="OnPublicarClicked"/>
+
+            <Button
+                Text="Cancelar y volver"
+                BackgroundColor="#E8F3EF"
+                TextColor="#263B35"
+                CornerRadius="12"
+                HeightRequest="48"
+                Clicked="OnCancelarClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

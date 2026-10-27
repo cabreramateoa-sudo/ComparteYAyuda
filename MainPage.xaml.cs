@@ -1,23 +1,36 @@
-﻿namespace ComparteYAyuda;
+﻿
+namespace ComparteYAyuda;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    public MainPage()
+    {
+        InitializeComponent();
+    }
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    private async void OnVerDonaciones(
+        object? sender, EventArgs e)
+    {
+        await DisplayAlertAsync(
+            "Donaciones disponibles",
+            "Aquí estará la lista de donaciones del proyecto.",
+            "Aceptar");
+    }
 
-	private void OnCounterClicked(object? sender, EventArgs e)
-	{
-		count++;
-
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+    private async void OnPublicarDonacion(
+        object? sender, EventArgs e)
+    {
+        try
+        {
+            await Shell.Current.GoToAsync(
+                nameof(PublicarDonacionPage));
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlertAsync(
+                "Error al abrir el formulario",
+                ex.ToString(),
+                "Aceptar");
+        }
+    }
 }
