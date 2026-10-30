@@ -1,8 +1,13 @@
 
+using ComparteYAyuda.Data;
+using ComparteYAyuda.Models;
+
 namespace ComparteYAyuda;
 
 public partial class PublicarDonacionPage : ContentPage
 {
+    private readonly DonacionDatabase _database = new();
+
     public PublicarDonacionPage()
     {
         InitializeComponent();
@@ -24,10 +29,38 @@ public partial class PublicarDonacionPage : ContentPage
             return;
         }
 
-        await DisplayAlertAsync(
-            "Formulario completado",
-            "Los datos se validaron correctamente. El guardado definitivo se integrará con la base de datos del proyecto.",
-            "Aceptar");
+        try
+        {
+            Donacion nuevaDonacion = new()
+            {
+                Articulo = ArticuloEntry.Text.Trim(),
+                Categoria = CategoriaPicker.SelectedItem?.ToString() ?? "",
+                Descripcion = DescripcionEditor.Text.Trim(),
+                Donante = DonanteEntry.Text.Trim(),
+                Contacto = ContactoEntry.Text.Trim(),
+                Estado = "Disponible"
+            };
+
+            await _database.GuardarDonacionAsync(nuevaDonacion);
+
+            await DisplayAlertAsync(
+                "¡Donación publicada!",
+                "Tu donación se guardó correctamente.",
+                "Aceptar");
+
+            ArticuloEntry.Text = "";
+            CategoriaPicker.SelectedIndex = -1;
+            DescripcionEditor.Text = "";
+            DonanteEntry.Text = "";
+            ContactoEntry.Text = "";
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlertAsync(
+                "Error al guardar",
+                $"No se pudo guardar la donación: {ex.Message}",
+                "Aceptar");
+        }
     }
 
     private async void OnCancelarClicked(
